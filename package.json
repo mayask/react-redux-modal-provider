@@ -1,0 +1,48 @@
+{
+  "name": "react-redux-modal-provider",
+  "version": "1.0.0",
+  "description": "Redux-powered abstract React modal state manager Edit",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/myaskevich/react-redux-modal-provider.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "modal",
+    "provider"
+  ],
+  "author": "Maxim Yaskevich <max@mayask.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/myaskevich/react-redux-modal-provider/issues"
+  },
+  "homepage": "https://github.com/myaskevich/react-redux-modal-provider#readme",
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0",
+    "react-redux": "^4.0.0 || ^5.0.0",
+    "redux": "^3.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "react": "^15.4.2",
+    "react-redux": "^5.0.3",
+    "redux": "^3.6.0",
+    "webpack": "^2.2.1"
+  }
+}
