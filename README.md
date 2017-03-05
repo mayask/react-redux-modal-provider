@@ -9,7 +9,7 @@ npm i --save react-redux-modal-provider
 
 ## Usage
 
-1. Add `<ModalProvider>` to your root component.
+#### 1. Add `<ModalProvider>` to your root component.
 
 ```jsx
 import ModalProvider from 'react-redux-modal-provider';
@@ -25,7 +25,7 @@ export default render(
 );
 ```
 
-2. Plug in Modal Provider reducer.
+#### 2. Plug in Modal Provider reducer.
 
 ```jsx
 import { reducer as modalProvider } from 'react-redux-modal-provider';
@@ -35,7 +35,7 @@ export default combineReducers({
 });
 ```
 
-3. Add modal creation code.
+#### 3. Add modal creation code.
 
 ```jsx
 import { connect } from 'react-redux';
@@ -58,7 +58,7 @@ const App = (props) => (
 export default connect(null, { showModal })(App);
 ```
 
-4. Handle modal closing.
+#### 4. Handle modal closing.
 
 ```jsx
 // myModal.jsx
@@ -83,7 +83,7 @@ export default (props) => (
 
 1. You don't have to think about where your modal component should fit into component tree, because it doesn't really matter where to render a modal.
 
-2. No need to `connect()` your modal component to Redux, unless you want it to be able to create create other modals itself.
+2. No need to `connect()` your modal component to Redux, unless you want it to be able to create other modals itself.
 
 ## Acknowledgements
 Thanks [@yesmeck](https://github.com/yesmeck), author of [`redux-modal`](https://github.com/yesmeck/redux-modal), for webpack config I borrowed.
