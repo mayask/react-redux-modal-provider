@@ -1,8 +1,11 @@
-import {ActionType} from './action';
+import { ActionType } from './action';
 
-const reducer = (state={
-  stack: [],
-}, action) => {
+const reducer = (
+  state = {
+    stack: [],
+  },
+  action,
+) => {
   switch (action.type) {
     case ActionType.SHOW:
       return {
@@ -12,8 +15,8 @@ const reducer = (state={
             component: action.component,
             props: action.props,
             show: true,
-          }
-        ]
+          },
+        ],
       };
 
     case ActionType.HIDE:
@@ -22,10 +25,10 @@ const reducer = (state={
           ...state.stack.slice(0, action.index),
           {
             ...state.stack[action.index],
-            show: false
+            show: false,
           },
           ...state.stack.slice(action.index + 1),
-        ]
+        ],
       };
 
     case ActionType.REMOVE:
@@ -33,7 +36,7 @@ const reducer = (state={
         stack: [
           ...state.stack.slice(0, action.index),
           ...state.stack.slice(action.index + 1),
-        ]
+        ],
       };
 
     default:

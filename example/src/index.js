@@ -1,7 +1,7 @@
 import React from 'react';
-import {render} from 'react-dom';
-import {Provider} from 'react-redux';
-import {createStore} from 'redux';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 import ModalProvider from 'react-redux-modal-provider';
 
 import rootReducer from './reducer';
@@ -17,5 +17,5 @@ export default render(
       <ModalProvider />
     </div>
   </Provider>,
-  document.getElementById('app')
+  document.getElementById('app'),
 );

@@ -6,7 +6,7 @@ export const ActionType = {
 
 export const showModal = (component, props = {}) => {
   if (!component) {
-    return;
+    return undefined;
   }
 
   return {
@@ -16,12 +16,12 @@ export const showModal = (component, props = {}) => {
   };
 };
 
-export const hideModal = (index) => ({
+export const hideModal = index => ({
   type: ActionType.HIDE,
   index,
 });
 
-export const removeModal = (index) => ({
+export const removeModal = index => ({
   type: ActionType.REMOVE,
   index,
 });
