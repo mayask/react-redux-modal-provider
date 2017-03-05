@@ -17,14 +17,22 @@ const reducer = (state={
       };
 
     case ActionType.HIDE:
-      if (action.index === 0 && state.stack.length === 1) {
-        return {stack: []};
-      }
-
       return {
         stack: [
-          ...state.stack.slice(0, action.index - 1),
-          ...state.stack.slice(action.index),
+          ...state.stack.slice(0, action.index),
+          {
+            ...state.stack[action.index],
+            show: false
+          },
+          ...state.stack.slice(action.index + 1),
+        ]
+      };
+
+    case ActionType.REMOVE:
+      return {
+        stack: [
+          ...state.stack.slice(0, action.index),
+          ...state.stack.slice(action.index + 1),
         ]
       };
 

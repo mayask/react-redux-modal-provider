@@ -17,7 +17,10 @@ const ExampleModalComponent = props => (
       <Button onClick={props.hideModal}>Close</Button>
       <Button
         bsStyle="primary"
-        onClick={() => props.showModal(ExampleModal, {index: props.index + 1})}>
+        onClick={() => props.showModal(ExampleModal, {
+          index: props.index + 1,
+          message: props.message
+        })}>
         Show another modal
       </Button>
     </Modal.Footer>
