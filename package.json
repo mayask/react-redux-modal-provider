@@ -1,6 +1,6 @@
 {
   "name": "react-redux-modal-provider",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Redux-powered abstract React modal state manager Edit",
   "main": "lib/index.js",
   "scripts": {
