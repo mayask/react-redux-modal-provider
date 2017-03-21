@@ -36,7 +36,10 @@ ModalProvider.propTypes = {
   modalProvider: PropTypes.shape({
     stack: PropTypes.arrayOf(
       PropTypes.shape({
-        component: PropTypes.element.isRequired,
+        component: PropTypes.oneOfType([
+          PropTypes.element,
+          PropTypes.func
+        ]).isRequired,
         props: PropTypes.object,
         show: PropTypes.bool.isRequired,
       }),
