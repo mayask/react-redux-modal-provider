@@ -1,11 +1,8 @@
 import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
 import { Button, Modal } from 'react-bootstrap';
 import { showModal } from 'react-redux-modal-provider';
 
-let ExampleModal;
-
-const ExampleModalComponent = props => (
+const ExampleModal = props => (
   <Modal show={props.show}>
     <Modal.Header>
       <Modal.Title>Hello {props.index}</Modal.Title>
@@ -19,7 +16,7 @@ const ExampleModalComponent = props => (
       <Button onClick={props.hideModal}>Close</Button>
       <Button
         bsStyle="primary"
-        onClick={() => props.showModal(ExampleModal, {
+        onClick={() => showModal(ExampleModal, {
           index: props.index + 1,
           message: props.message,
         })}
@@ -30,20 +27,15 @@ const ExampleModalComponent = props => (
   </Modal>
 );
 
-ExampleModalComponent.propTypes = {
+ExampleModal.propTypes = {
   show: PropTypes.bool.isRequired,
   hideModal: PropTypes.func.isRequired,
-  showModal: PropTypes.func.isRequired,
   index: PropTypes.number,
   message: PropTypes.string.isRequired,
 }
 
-ExampleModalComponent.defaultProps = {
+ExampleModal.defaultProps = {
   index: 1,
 };
 
-ExampleModal = connect(null, { showModal })(ExampleModalComponent);
-
-const ExampleModalToExport = ExampleModal;
-
-export default ExampleModalToExport;
+export default ExampleModal;

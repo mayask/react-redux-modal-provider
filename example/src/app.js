@@ -1,6 +1,5 @@
-import React, {Component, PropTypes} from 'react';
-import {connect} from 'react-redux';
-import {showModal} from 'react-redux-modal-provider';
+import React, { Component } from 'react';
+import { showModal } from 'react-redux-modal-provider';
 
 import ExampleModal from './exampleModal';
 
@@ -25,7 +24,7 @@ class App extends Component {
           <button
             type="button"
             className="btn btn-primary btn-lg"
-            onClick={() => this.props.showModal(ExampleModal, {
+            onClick={() => showModal(ExampleModal, {
               message: this.state.message
             })}>
             Launch demo modal
@@ -36,10 +35,4 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
-  showModal: PropTypes.func.isRequired,
-}
-
-export default connect(null, {
-  showModal,
-})(App);
+export default App;
