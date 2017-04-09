@@ -16,12 +16,12 @@ export const showModal = (component, props = {}) => {
   };
 };
 
-export const hideModal = index => ({
+export const hideModal = id => ({
   type: ActionType.HIDE,
-  index,
+  id,
 });
 
-export const removeModal = index => ({
+export const removeModal = id => ({
   type: ActionType.REMOVE,
-  index,
+  id,
 });

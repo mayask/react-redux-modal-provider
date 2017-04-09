@@ -79,6 +79,44 @@ export default (props) => (
 
 `show` and `hideModal` props are passed in automatically.
 
+## Implementations
+
+### `StackableModalProvider` (default)
+
+This is the default `ModalProvider` implementation. Each new modal stacks up on top of previous one.
+
+```jsx
+import { StackableModalProvider } from 'react-redux-modal-provider';
+
+export default render(
+  <Provider store={store}>
+    <div>
+      <App />
+      <StackableModalProvider />
+    </div>
+  </Provider>,
+  document.getElementById('app')
+);
+```
+
+### `SingleModalProvider`
+
+One modal at a time. Each new modal triggers `hideModal` on previous modal.
+
+```jsx
+import { SingleModalProvider } from 'react-redux-modal-provider';
+
+export default render(
+  <Provider store={store}>
+    <div>
+      <App />
+      <SingleModalProvider />
+    </div>
+  </Provider>,
+  document.getElementById('app')
+);
+```
+
 ## How is it different from [`redux-modal`](https://github.com/yesmeck/redux-modal)?
 
 1. You don't have to think about where your modal component should fit into component tree, because it doesn't really matter where to render a modal.
