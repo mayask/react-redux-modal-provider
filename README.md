@@ -7,6 +7,55 @@
 npm i --save react-redux-modal-provider
 ```
 
+## What's new in `v2`
+
+No need to use `connect()` anymore!
+
+### Before:
+
+```jsx
+// app.jsx
+import { connect } from 'react-redux';
+import { showModal } from 'react-redux-modal-provider';
+import MyModal from './myModal';
+
+const App = (props) => (
+  <div>
+    <p>
+      Hello world
+    </p>
+    <button
+      type="button"
+      onClick={() => props.showModal(MyModal, { message: 'Hello' })}>
+      Present modal
+    </button>
+  </div>
+);
+
+export default connect(null, { showModal })(App);
+```
+
+### After:
+
+```jsx
+// app.jsx
+import { showModal } from 'react-redux-modal-provider';
+import MyModal from './myModal';
+
+export default (props) => (
+  <div>
+    <p>
+      Hello world
+    </p>
+    <button
+      type="button"
+      onClick={() => showModal(MyModal, { message: 'Hello' })}>
+      Present modal
+    </button>
+  </div>
+);
+```
+
 ## Usage
 
 #### 1. Add `<ModalProvider>` to your root component.
@@ -38,24 +87,22 @@ export default combineReducers({
 #### 3. Add modal creation code.
 
 ```jsx
-import { connect } from 'react-redux';
+// app.jsx
 import { showModal } from 'react-redux-modal-provider';
 import MyModal from './myModal';
 
-const App = (props) => (
+export default (props) => (
   <div>
     <p>
       Hello world
     </p>
     <button
       type="button"
-      onClick={() => props.showModal(MyModal, { message: 'Hello' })}>
+      onClick={() => showModal(MyModal, { message: 'Hello' })}>
       Present modal
     </button>
   </div>
 );
-
-export default connect(null, { showModal })(App);
 ```
 
 #### 4. Handle modal closing.
@@ -101,7 +148,7 @@ export default render(
 
 ### `SingleModalProvider`
 
-One modal at a time. Each new modal triggers `hideModal` on previous modal.
+One modal at a time. Each new modal triggers `hideModal` on previous one.
 
 ```jsx
 import { SingleModalProvider } from 'react-redux-modal-provider';
@@ -124,7 +171,10 @@ export default render(
 2. No need to `connect()` your modal component to Redux, unless you want it to be able to create other modals itself.
 
 ## Acknowledgements
-Thanks [@yesmeck](https://github.com/yesmeck), author of [`redux-modal`](https://github.com/yesmeck/redux-modal), for webpack config I borrowed.
+
+* Thanks [@yesmeck](https://github.com/yesmeck), author of [`redux-modal`](https://github.com/yesmeck/redux-modal), for webpack config I borrowed.
+
+* Thanks [@diegoddox](https://github.com/diegoddox), author of [`react-redux-toastr`](https://github.com/diegoddox/react-redux-toastr), for the idea how to dispatch actions from anywhere using `EventEmitter`.
 
 ## License
 MIT

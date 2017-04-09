@@ -1,6 +1,16 @@
 import React, { Component, PropTypes } from 'react';
 
+import eventEmitter from './eventEmitter';
+
 export default class BaseModalProvider extends Component {
+  componentWillMount() {
+    eventEmitter.on('showModal', (args) => this.props.showModal(...args));
+  }
+
+  componentWillUnmount() {
+    eventEmitter.removeListener('showModal');
+  }
+
   hideModal(id) {
     this.props.hideModal(id);
     setTimeout(
@@ -28,6 +38,7 @@ export default class BaseModalProvider extends Component {
 }
 
 BaseModalProvider.propTypes = {
+  showModal: PropTypes.func.isRequired,
   hideModal: PropTypes.func.isRequired,
   removeModal: PropTypes.func.isRequired,
   modalProvider: PropTypes.shape({
