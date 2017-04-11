@@ -41,19 +41,9 @@ const reducer = (
       };
 
     case ActionType.REMOVE:
-      if (state.stack.length === 1) {
-        return {
-          ...state,
-          stack: []
-        };
-      }
-
       return {
         ...state,
-        stack: [
-          ...state.stack.filter(modal => state.stack.indexOf(modal) < state.stack.indexOf(targetModal)),
-          ...state.stack.filter(modal => state.stack.indexOf(modal) > state.stack.indexOf(targetModal)),
-        ],
+        stack: state.stack.filter(modal => modal.id !== action.id),
       };
 
     default:
