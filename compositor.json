@@ -1,0 +1,88 @@
+{
+  "name": "myaskevich/react-redux-modal-provider",
+  "version": "0.1.4",
+  "libraries": {
+    "xv": "^1.1.25"
+  },
+  "title": "asdf",
+  "branch": "",
+  "style": {
+    "name": "Swiss",
+    "componentSet": {
+      "nav": "nav/BasicNav",
+      "header": "header/SwissHeader",
+      "article": "article/SwissArticle",
+      "footer": "footer/BasicFooter"
+    },
+    "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+    "heading": {
+      "fontWeight": 700,
+      "letterSpacing": "-0.01em"
+    },
+    "layout": {
+      "fluid": true
+    },
+    "colors": {
+      "text": "#000",
+      "background": "#fff",
+      "primary": "#05a",
+      "secondary": "#444",
+      "highlight": "#f30",
+      "border": "#ccc",
+      "muted": "#eee"
+    }
+  },
+  "content": [
+    {
+      "component": "nav",
+      "links": [
+        {
+          "href": "https://github.com/myaskevich/react-redux-modal-provider",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://npmjs.com/package/react-redux-modal-provider",
+          "text": "npm"
+        }
+      ]
+    },
+    {
+      "component": "header",
+      "heading": "react-redux-modal-provider",
+      "subhead": "Redux-powered abstract React modal state manager",
+      "children": [
+        {
+          "component": "ui/TweetButton",
+          "text": "react-redux-modal-provider: Redux-powered abstract React modal state manager",
+          "url": null
+        },
+        {
+          "component": "ui/GithubButton",
+          "user": "myaskevich",
+          "repo": "react-redux-modal-provider"
+        }
+      ],
+      "text": "v2.0.1"
+    },
+    {
+      "component": "article",
+      "metadata": {
+        "source": "github.readme"
+      },
+      "html": "<h1>React Redux Modal Provider</h1>\n<p><code>react-redux-modal-provider</code> controls the state of your React modal components using Redux.</p>\n<h2>Installation</h2>\n<pre>npm <span class=\"hljs-selector-tag\">i</span> --save react-redux-modal-provider</pre><h2>What&apos;s new in <code>v2</code></h2>\n<p>No need to use <code>connect()</code> anymore!</p>\n<h3>Before:</h3>\n<pre><span class=\"hljs-comment\">// app.jsx</span>\n<span class=\"hljs-keyword\">import</span> { connect } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&apos;react-redux&apos;</span>;\n<span class=\"hljs-keyword\">import</span> { showModal } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&apos;react-redux-modal-provider&apos;</span>;\n<span class=\"hljs-keyword\">import</span> MyModal <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&apos;./myModal&apos;</span>;\n\n<span class=\"hljs-keyword\">const</span> App = <span class=\"hljs-function\">(<span class=\"hljs-params\">props</span>) =&gt;</span> (\n  <span class=\"xml\"><span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">div</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">p</span>&gt;</span>\n      Hello world\n    <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">p</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">button</span>\n      <span class=\"hljs-attr\">type</span>=<span class=\"hljs-string\">&quot;button&quot;</span>\n      <span class=\"hljs-attr\">onClick</span>=<span class=\"hljs-string\">{()</span> =&gt;</span> props.showModal(MyModal, { message: &apos;Hello&apos; })}&gt;\n      Present modal\n    <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">button</span>&gt;</span>\n  <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">div</span>&gt;</span></span>\n);\n\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">default</span> connect(<span class=\"hljs-literal\">null</span>, { showModal })(App);</pre><h3>After:</h3>\n<pre><span class=\"hljs-comment\">// app.jsx</span>\n<span class=\"hljs-keyword\">import</span> { showModal } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&apos;react-redux-modal-provider&apos;</span>;\n<span class=\"hljs-keyword\">import</span> MyModal <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&apos;./myModal&apos;</span>;\n\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">default</span> (props) =&gt; (\n  <span class=\"xml\"><span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">div</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">p</span>&gt;</span>\n      Hello world\n    <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">p</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">button</span>\n      <span class=\"hljs-attr\">type</span>=<span class=\"hljs-string\">&quot;button&quot;</span>\n      <span class=\"hljs-attr\">onClick</span>=<span class=\"hljs-string\">{()</span> =&gt;</span> showModal(MyModal, { message: &apos;Hello&apos; })}&gt;\n      Present modal\n    <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">button</span>&gt;</span>\n  <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">div</span>&gt;</span></span>\n);</pre><h2>Usage</h2>\n<h4>1. Add <code>&lt;ModalProvider&gt;</code> to your root component.</h4>\n<pre><span class=\"hljs-keyword\">import</span> ModalProvider <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&apos;react-redux-modal-provider&apos;</span>;\n\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">default</span> render(\n  <span class=\"xml\"><span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">Provider</span> <span class=\"hljs-attr\">store</span>=<span class=\"hljs-string\">{store}</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">div</span>&gt;</span>\n      <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">App</span> /&gt;</span>\n      <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">ModalProvider</span> /&gt;</span>\n    <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">div</span>&gt;</span>\n  <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">Provider</span>&gt;</span></span>,\n  <span class=\"hljs-built_in\">document</span>.getElementById(<span class=\"hljs-string\">&apos;app&apos;</span>)\n);</pre><h4>2. Plug in Modal Provider reducer.</h4>\n<pre><span class=\"hljs-keyword\">import</span> { reducer <span class=\"hljs-keyword\">as</span> modalProvider } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&apos;react-redux-modal-provider&apos;</span>;\n\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">default</span> combineReducers({\n  modalProvider,\n});</pre><h4>3. Add modal creation code.</h4>\n<pre><span class=\"hljs-comment\">// app.jsx</span>\n<span class=\"hljs-keyword\">import</span> { showModal } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&apos;react-redux-modal-provider&apos;</span>;\n<span class=\"hljs-keyword\">import</span> MyModal <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&apos;./myModal&apos;</span>;\n\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">default</span> (props) =&gt; (\n  <span class=\"xml\"><span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">div</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">p</span>&gt;</span>\n      Hello world\n    <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">p</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">button</span>\n      <span class=\"hljs-attr\">type</span>=<span class=\"hljs-string\">&quot;button&quot;</span>\n      <span class=\"hljs-attr\">onClick</span>=<span class=\"hljs-string\">{()</span> =&gt;</span> showModal(MyModal, { message: &apos;Hello&apos; })}&gt;\n      Present modal\n    <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">button</span>&gt;</span>\n  <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">div</span>&gt;</span></span>\n);</pre><h4>4. Handle modal closing.</h4>\n<pre><span class=\"hljs-comment\">// myModal.jsx</span>\n<span class=\"hljs-keyword\">import</span> { Modal } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&apos;react-bootstrap&apos;</span>;\n\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">default</span> (props) =&gt; (\n  &lt;Modal show={props.show}&gt;\n    &lt;Modal.Body&gt;\n      {props.message}\n    &lt;/Modal.Body&gt;\n\n    &lt;Modal.Footer&gt;\n      &lt;Button onClick={props.hideModal}&gt;Ok&lt;/Button&gt;\n    &lt;/Modal.Footer&gt;\n  &lt;/Modal&gt;\n);</pre><p><code>show</code> and <code>hideModal</code> props are passed in automatically.</p>\n<h2>Implementations</h2>\n<h3><code>StackableModalProvider</code> (default)</h3>\n<p>This is the default <code>ModalProvider</code> implementation. Each new modal stacks up on top of previous one.</p>\n<pre><span class=\"hljs-keyword\">import</span> { StackableModalProvider } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&apos;react-redux-modal-provider&apos;</span>;\n\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">default</span> render(\n  <span class=\"xml\"><span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">Provider</span> <span class=\"hljs-attr\">store</span>=<span class=\"hljs-string\">{store}</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">div</span>&gt;</span>\n      <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">App</span> /&gt;</span>\n      <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">StackableModalProvider</span> /&gt;</span>\n    <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">div</span>&gt;</span>\n  <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">Provider</span>&gt;</span></span>,\n  <span class=\"hljs-built_in\">document</span>.getElementById(<span class=\"hljs-string\">&apos;app&apos;</span>)\n);</pre><h3><code>SingleModalProvider</code></h3>\n<p>One modal at a time. Each new modal triggers <code>hideModal</code> on previous one.</p>\n<pre><span class=\"hljs-keyword\">import</span> { SingleModalProvider } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&apos;react-redux-modal-provider&apos;</span>;\n\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">default</span> render(\n  <span class=\"xml\"><span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">Provider</span> <span class=\"hljs-attr\">store</span>=<span class=\"hljs-string\">{store}</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">div</span>&gt;</span>\n      <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">App</span> /&gt;</span>\n      <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">SingleModalProvider</span> /&gt;</span>\n    <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">div</span>&gt;</span>\n  <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">Provider</span>&gt;</span></span>,\n  <span class=\"hljs-built_in\">document</span>.getElementById(<span class=\"hljs-string\">&apos;app&apos;</span>)\n);</pre><h2>How is it different from <a href=\"https://github.com/yesmeck/redux-modal\"><code>redux-modal</code></a>?</h2>\n<ol>\n<li><p>You don&apos;t have to think about where your modal component should fit into component tree, because it doesn&apos;t really matter where to render a modal.</p>\n</li>\n<li><p>No need to <code>connect()</code> your modal component to Redux, unless you want it to be able to create other modals itself.</p>\n</li>\n</ol>\n<h2>Acknowledgements</h2>\n<ul>\n<li><p>Thanks <a href=\"https://github.com/yesmeck\">@yesmeck</a>, author of <a href=\"https://github.com/yesmeck/redux-modal\"><code>redux-modal</code></a>, for webpack config I borrowed.</p>\n</li>\n<li><p>Thanks <a href=\"https://github.com/diegoddox\">@diegoddox</a>, author of <a href=\"https://github.com/diegoddox/react-redux-toastr\"><code>react-redux-toastr</code></a>, for the idea how to dispatch actions from anywhere using <code>EventEmitter</code>.</p>\n</li>\n</ul>\n<h2>License</h2>\n<p>MIT</p>\n"
+    },
+    {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/myaskevich/react-redux-modal-provider",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/myaskevich",
+          "text": "myaskevich"
+        }
+      ]
+    }
+  ]
+}
