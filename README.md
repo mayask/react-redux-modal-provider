@@ -7,55 +7,6 @@
 npm i --save react-redux-modal-provider
 ```
 
-## What's new in `v2`
-
-No need to use `connect()` anymore!
-
-### Before:
-
-```jsx
-// app.jsx
-import { connect } from 'react-redux';
-import { showModal } from 'react-redux-modal-provider';
-import MyModal from './myModal';
-
-const App = (props) => (
-  <div>
-    <p>
-      Hello world
-    </p>
-    <button
-      type="button"
-      onClick={() => props.showModal(MyModal, { message: 'Hello' })}>
-      Present modal
-    </button>
-  </div>
-);
-
-export default connect(null, { showModal })(App);
-```
-
-### After:
-
-```jsx
-// app.jsx
-import { showModal } from 'react-redux-modal-provider';
-import MyModal from './myModal';
-
-export default (props) => (
-  <div>
-    <p>
-      Hello world
-    </p>
-    <button
-      type="button"
-      onClick={() => showModal(MyModal, { message: 'Hello' })}>
-      Present modal
-    </button>
-  </div>
-);
-```
-
 ## Usage
 
 #### 1. Add `<ModalProvider>` to your root component.
