@@ -1,6 +1,6 @@
 {
   "name": "react-redux-modal-provider",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Redux-powered abstract React modal state manager",
   "main": "lib/index.js",
   "scripts": {
@@ -50,8 +50,8 @@
     "eslint-plugin-react": "^6.10.0",
     "eslint-watch": "^3.0.0",
     "prettier": "^0.21.0",
-    "react": "^15.4.2",
     "prop-types": "^15.0.0",
+    "react": "^15.4.2",
     "react-redux": "^5.0.3",
     "redux": "^3.6.0"
   },
