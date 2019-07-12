@@ -1,10 +1,12 @@
+import { DELAY_BEFORE_REMOVE_MSEC } from './constants';
+
 export const ActionType = {
   SHOW: '@react-redux-modal-provider.show',
   HIDE: '@react-redux-modal-provider.hide',
   REMOVE: '@react-redux-modal-provider.remove',
 };
 
-export const showModal = (component, props = {}) => {
+export const showModal = (component, props = {}, delayBeforeRemoveMsec = DELAY_BEFORE_REMOVE_MSEC) => {
   if (!component) {
     return undefined;
   }
@@ -13,6 +15,7 @@ export const showModal = (component, props = {}) => {
     type: ActionType.SHOW,
     component,
     props,
+    delayBeforeRemoveMsec,
   };
 };
 

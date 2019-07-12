@@ -17,6 +17,7 @@ const reducer = (
             component: action.component,
             props: action.props,
             show: true,
+            delayBeforeRemoveMsec: action.delayBeforeRemoveMsec,
           },
         ],
       };

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import eventEmitter from './eventEmitter';
+import { DELAY_BEFORE_REMOVE_MSEC } from './constants';
 
 export default class BaseModalProvider extends Component {
   componentWillMount() {
@@ -12,13 +13,13 @@ export default class BaseModalProvider extends Component {
     eventEmitter.removeListener('showModal');
   }
 
-  hideModal(id) {
+  hideModal(id, delayBeforeRemoveMsec = DELAY_BEFORE_REMOVE_MSEC) {
     this.props.hideModal(id);
     setTimeout(
       () => {
         this.props.removeModal(id);
       },
-      1000,
+      delayBeforeRemoveMsec,
     );
   }
 
@@ -29,7 +30,7 @@ export default class BaseModalProvider extends Component {
           <modal.component
             key={`@${this.constructor.name}_MODAL_${modal.id}`}
             {...modal.props}
-            hideModal={() => this.hideModal(modal.id)}
+            hideModal={() => this.hideModal(modal.id, modal.delayBeforeRemoveMsec)}
             show={modal.show}
           />
         ))}

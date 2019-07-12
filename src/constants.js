@@ -1,0 +1,1 @@
+export const DELAY_BEFORE_REMOVE_MSEC = 1000;
