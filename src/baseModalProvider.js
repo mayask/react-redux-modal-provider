@@ -49,7 +49,9 @@ BaseModalProvider.propTypes = {
         id: PropTypes.number.isRequired,
         component: PropTypes.oneOfType([
           PropTypes.element,
-          PropTypes.func
+          PropTypes.func,
+          PropTypes.node,
+          PropTypes.elementType
         ]).isRequired,
         props: PropTypes.object,
         show: PropTypes.bool.isRequired,
